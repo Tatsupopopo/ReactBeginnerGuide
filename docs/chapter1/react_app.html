@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React</title>
+    <!-- CDN で React を利用するための最小構成 -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+      #root {
+        cursor: pointer;
+        font-size: 20pt;
+        background-color: lightblue;
+        padding: 1px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>React</h1>
+    <div id="root" onclick="doCount()">wait...</div>
+    <script>
+      let dom = document.querySelector("#root"); // id に該当する要素を取得.
+
+      //   let element = React.createElement("p", {}, "Hello World!"); // タグ, 属性, 組み込まれるテキストを引数にして, 要素を生成.
+      //   ReactDOM.render(element, dom); // DOM を引数に書き換える.
+
+      // カウントする関数を作って, onClick で関数を反応させる.
+      let counter = 0;
+      doCount();
+      function doCount() {
+        counter++;
+        let element = React.createElement("p", {}, "count: " + counter);
+        ReactDOM.render(element, dom);
+      }
+    </script>
+  </body>
+</html>
